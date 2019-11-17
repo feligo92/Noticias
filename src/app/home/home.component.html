@@ -1,0 +1,80 @@
+<div class="page">
+    <div class="row cuerpo">
+        <div class="col-10 offset-1">
+
+            <!--Título-->
+            <h2 class="text-center">Mis Noticias</h2>
+
+            <!--==================== NAVBAR ======================-->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" (click)="getHoy()">Home</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categorías
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" (click)="getResistencia()">La Resistencia</a>
+                                        <a class="dropdown-item" (click)="getBarca()">Barça</a>
+                                        <a class="dropdown-item" (click)="getLol()">League of legends</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input id="busqueda" class="form-control mr-sm-2" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" (click)="getBusqueda()" type="button">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!--============= Fin de la NAVBAR ==============-->
+
+
+            <!-- *ngFor="let article of arrArticles" -->
+            <div class="row ">
+                <div class="col-6 mt-3 mb-3" *ngFor="let articulo of arrArticulos, let i = index">
+                    <div class="card" style="width: 80%;">
+
+                        <img src="{{articulo['urlToImage']}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title myCardTitle" routerLink="/articulo/{{i}}">{{articulo['description']}} </h4>
+                            <h5 class="card-subtitle">{{articulo['author']}}</h5>
+                           <span>Enlace a la noticia:</span>
+                            <a href="{{articulo['url']}}">{{articulo['url']}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <!--=================Footer================-->
+    <footer class="text-light bg-dark">
+        <div class="container">
+
+            <p>Feligo 2019 &copy; Proyecto para NEOLAND </p>
+            <p>¿Eres nuevo en esto? <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Haz click para inspirarte.</a>
+                Si ya lo tienes claro <a href="https://empleo.mcdonalds.es/">trabaja con nosotros</a>.</p>
+        </div>
+    </footer>
+
+
+</div>
