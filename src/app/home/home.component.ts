@@ -26,9 +26,14 @@ export class HomeComponent {
     )
 
     this.busqueda = "";
-    this._data.llamadaGet("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=es&from=2019-11-15&q=noticia&apiKey=afea889eae7d463b855fd2b78dc6c4c7&pageSize=12");
+    // this._data.llamadaGet("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=es&from=2019-11-15&q=noticia&apiKey=afea889eae7d463b855fd2b78dc6c4c7&pageSize=12");
 
-
+    if (Object.entries(this._data.articles).length === 0){
+      this._data.llamadaGet("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=es&from=2019-11-15&q=noticia&apiKey=afea889eae7d463b855fd2b78dc6c4c7&pageSize=12");
+    } else {
+      this.data = this._data.articles;
+      this.arrArticulos = this.data["articles"];
+    }
 
   }
   //HOY
